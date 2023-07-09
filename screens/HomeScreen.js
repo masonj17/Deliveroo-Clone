@@ -1,9 +1,10 @@
-import { View, Text, Image, TextInput } from "react-native";
+import { View, Text, Image, TextInput, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import logo from "../assets/favicon.png";
+import logo from "../assets/deliveroo.jpg";
 import { AdjustmentsVerticalIcon, ChevronDownIcon, UserIcon, MagnifyingGlassIcon } from "react-native-heroicons/outline";
+import Categories from "../components/Categories";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -19,7 +20,7 @@ const HomeScreen = () => {
       <View className="text-red-500">
         {/* Header */}
         <View className="flex-row items-center mx-4 space-x-2">
-          <Image source={logo} className="h-7 w-7 bg-gray-400 p-4 rounded-full" />
+          <Image source={logo} className="h-12 w-12 bg-gray-400 p-4 rounded-full " />
 
           <View className="flex-1">
             <Text className="font-bold text-gray-400 text-xs">Deliver Now!</Text>
@@ -36,10 +37,18 @@ const HomeScreen = () => {
         <View className="flex-row items-center space-x-2 pb-2 mx-4">
           <View className="flex-row flex-1 space-x-2 bg-gray-100 p-1 my-1">
             <MagnifyingGlassIcon size={20} color="gray" />
-            <TextInput placeholder="Restaurants and cuisines" keyboardType="default" />
+            <TextInput placeholder="Restaurants and cuisines" keyboardType="default" placeholderTextColor={"#D3D3D3"} />
           </View>
           <AdjustmentsVerticalIcon color="#00CCBB" />
         </View>
+
+        {/* Body */}
+        <ScrollView>
+          {/* Catgeories component */}
+          <Categories />
+
+          {/* Featured Rows */}
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
