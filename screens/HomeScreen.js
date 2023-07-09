@@ -1,9 +1,10 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TextInput } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import React, { useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import logo from "../assets/favicon.png";
-import { ChevronDownIcon, UserIcon } from "react-native-heroicons/outline";
+import { AdjustmentsVerticalIcon, ChevronDownIcon, UserIcon, MagnifyingGlassIcon } from "react-native-heroicons/outline";
+
 const HomeScreen = () => {
   const navigation = useNavigation();
 
@@ -29,6 +30,15 @@ const HomeScreen = () => {
           </View>
 
           <UserIcon size={35} color="#00CCBB" />
+        </View>
+
+        {/* Search */}
+        <View className="flex-row items-center space-x-2 pb-2 mx-4">
+          <View className="flex-row flex-1 space-x-2 bg-gray-100 p-1 my-1">
+            <MagnifyingGlassIcon size={20} color="gray" />
+            <TextInput placeholder="Restaurants and cuisines" keyboardType="default" />
+          </View>
+          <AdjustmentsVerticalIcon color="#00CCBB" />
         </View>
       </View>
     </SafeAreaView>
